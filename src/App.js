@@ -9,15 +9,12 @@ import {
 	Box,
 	BottomNavigation,
 	BottomNavigationAction,
-	autocompleteClasses,
 } from '@mui/material';
-import CircularProgress, {
-	CircularProgressProps,
-} from '@mui/material/CircularProgress';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function App() {
 	const [value, setValue] = React.useState(0);
-	const [progress, setProgress] = React.useState(1);
+	const [progress, setProgress] = React.useState(0);
 	const graphicColor = '#33ff33';
 	const bgColor = '#282828';
 	return (
@@ -47,17 +44,15 @@ function App() {
 								bottom: '12vh',
 								left: '35vw',
 								transform: 'translateX(-50%)',
-								'&.MuiCircularProgress-colorPrimary': {
-									color: `${graphicColor}`,
-								},
 							}}
+							// make programmatic media query for the main earn button
 							size={'30vw'}
 							thickness={2}
 							value={progress}
 							variant='determinate'
 							onClick={() =>
 								setProgress((prevProgress) =>
-									prevProgress >= 100 ? 0 : prevProgress + 1
+									prevProgress >= 100 ? 0 : prevProgress + 0.1
 								)
 							}
 						/>
